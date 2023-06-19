@@ -2,16 +2,16 @@
 
 | Method                  | Input | Scenario                                                                                                                          | Outputs                                 |
 |-------------------------|-------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| addItem()      |       | When a new bagel is added, ensure it's stored in the basket                                                                       |                                         |
+| addItem()               |       | When a new bagel is added, ensure it's stored in the basket                                                                       |                                         |
 |                         |       | When a customer goes to add an item that already exists within the basket, prompt the user that the item is already in the basket | Error ('Item is already in the basket') |
-| removeItem() |       | When a customer rquests removal of a bagel, ensure its removed from the basket                                                    |                                         |
+| removeItem()            |       | When a customer rquests removal of a bagel, ensure its removed from the basket                                                    |                                         |
 |                         |       | When a item is prompted to be removed and the item isn't listed in the basket, prompt the user that the item doesn't exist        | Error ('Item does not exist')           |
 |                         |       |                                                                                                                                   |                                         |
-| isFull()          |       | When a customer attempts to add another item to the basket when it is full, it will prompt the user that the basket is full       |                                         |
-| setSize()    |       | If a manager wants to create a basket to suit a bigger order, allow the manager to create a custom size basket                    |                                         |
+| isFull()                |       | When a customer attempts to add another item to the basket when it is full, it will prompt the user that the basket is full       |                                         |
+| setSize()               |       | If a manager wants to create a basket to suit a bigger order, allow the manager to create a custom size basket                    |                                         |
 |                         |       |                                                                                                                                   |                                         |
 | checkItemPrice()        |       | Allows customers to input a type of bagel and return the price of the bagel                                                       |                                         |
-| total()        |       | When a customer goes to checkout, it will print the total sum of all items within the basket                                      | price(num)                              |
+| total()                 |       | When a customer goes to checkout, it will print the total sum of all items within the basket                                      | price(num)                              |
 
 ![](./_images/bagels.jpg)
 

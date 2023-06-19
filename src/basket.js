@@ -6,71 +6,66 @@ class Basket {
     this.basketSize = 4;
   }
 
-  addBagelToBasket(type) {
-    for (let i = 0; i < inventory.length; i++){
-      const bagel = inventory[i]
-      if (bagel["variant"] === type && this.basket.length < this.basketSize) {
-        this.basket.push(bagel)
-        return
-      }
+  addItem(item) {
+    if(typeof item != 'object') {
+      return false
     }
-    return "Basket is full!"
+
+    if(this.basket.length >= this.basketSize) {
+      console.error('Unable to add item, basket is full.')
+      return false
+    }
+
+    if(this.basket.includes(item)) {
+      console.error('Unable to add item, item already exists in basket.')
+      return false
+    }
+
+    this.basket.push(item)
+    return true
   }
 
-  removeBagelFromBasket(type) {
-    for (let i = 0; i < this.basket.length; i++) {
-      const bagelToRemove = this.basket[i];
-      if (bagelToRemove["variant"] == type) {
-        this.basket.splice(i, 1);
-        return;
-      }
+  removeItem(item) {
+    if(!this.basket.includes(item)) {
+      console.error('Unable to remove item, basket is empty')
+      return false
     }
-    return "This Bagel doesn't exist";
-  }
-  
-  getTotalOfBasket() {
-      let count = 0;
-      for (let i = 0; i < this.basket.length; i++) {
-          const bagelPrice = this.basket[i]["price"]
-          count += bagelPrice
-      }
-      count = count - this.getDiscount()
-      
-      return Number(count.toFixed(2))
+
+    this.basket.splice(this.basket.indexOf(item), 1)
+    return true
   }
 
-  getDiscount() {
-    let discount = 0;
-    const discountOnionArray = this.basket.filter(variant => variant["variant"] === "Onion")
-    const everythingBagelArray = this.basket.filter(variant => variant["variant"] === "Everything")
-    const plainBagelArray = this.basket.filter(variant => variant["variant"] === "Plain")
-    const discMultiplierOne = Math.trunc(discountOnionArray.length / 6)
-    const discMultiplierTwo = Math.trunc(everythingBagelArray.length / 6)
-    const discMultiplierThree = Math.trunc(plainBagelArray.length / 12)
-    if (discountOnionArray.length >= 6) {
-      discount = discount + (discMultiplierOne*0.45)
+  setSize(size) {
+    if(size <= 0) {
+      console.error('Unable to change size, invalid size')
+      return false
     }
-    if (everythingBagelArray.length >= 6)  {
-      discount = discount + (discMultiplierTwo*0.45)
-    }
-    if (plainBagelArray.length >= 12) {
-      discount = discount + (discMultiplierThree*0.69)
-    }
-    return discount
+    this.basketSize = size
+    return true
   }
 
-  getBagelPrice(type) {
-      for (let i = 0; i < inventory.length; i++) {
-          const bagel = inventory[i]
-          if(bagel["variant"] === type) {
-              return inventory[i]
-          }
-      }
+  checkItemPrice(item) {
+    if(item.price) {
+      return item.price
+    }
+
+    console.error('Unable to check price, invalid item.')
+    return false
   }
 
-  getBasket() {
-    return this.basket;
+  total() {
+    let total = 0
+    this.basket.forEach(item => {
+      total += item.price
+    })
+    return total.toString()
   }
+}
+const item = {
+  "sku": "BGLO",
+  "price": 0.49,
+  "name": "Bagel",
+  "variant": "Onion"
 }
 
 module.exports = Basket;
