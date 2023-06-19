@@ -15,9 +15,8 @@ class Basket {
       }
     }
     return "Basket is full!"
-     
-
   }
+
   removeBagelFromBasket(type) {
     for (let i = 0; i < this.basket.length; i++) {
       const bagelToRemove = this.basket[i];
@@ -68,6 +67,7 @@ class Basket {
           }
       }
   }
+
   getBasket() {
     return this.basket;
   }
