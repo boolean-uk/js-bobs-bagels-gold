@@ -32,7 +32,7 @@ class Basket {
       let count = 0;
       for (let i = 0; i < this.basket.length; i++) {
           const bagelPrice = this.basket[i]["price"]
-          count = count + bagelPrice
+          count += bagelPrice
       }
       count = count - this.getDiscount()
       
