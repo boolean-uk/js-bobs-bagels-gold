@@ -1,5 +1,20 @@
 # Bob's Bagels
 
+| Method                             | Input                | Scenario                                                                                                                          | Outputs               |
+|------------------------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Add Bagel to basket                | Bagel                | When a new bagel is added, ensure it's stored in the basket                                                                       | push to basket []     |
+| Remove Bagel from basket           | Bagel                | When a customer rquests removal of a bagel, ensure its removed from the basket                                                    | update basket []      |
+|                                    |                      |                                                                                                                                   |                       |
+| Full Basket Prompt                 | Bagel x Max Capacity | When a customer attempts to add another item to the basket when it is full, it will prompt the user that the basket is full       | 'Basket is Full'      |
+| Create Large Baskets               | Basket Capacity      | If a manager wants to create a basket to suit a bigger order, allow the manager to create a custom size basket                    |                       |
+| Removing an item that doesnt exist | Bagel (non-existing) | When a item is prompted to be removed and the item isn't listed in the basket, prompt the user that the item doesn't exist        | 'Item doesn't exist'  |
+| Adding an item that already exists | Bagel (pre-existing) | When a customer goes to add an item that already exists within the basket, prompt the user that the item is already in the basket | 'Item already exists' |
+|                                    |                      |                                                                                                                                   |                       |
+| Item Price Check                   | Bagel                | Allows customers to input a type of bagel and return the price of the bagel                                                       | BagelPrice            |
+| Total Basket Sum                   | none                 | When a customer goes to checkout, it will print the total sum of all items within the basket                                      | BasketSum             |
+
+
+
 ![](./_images/bagels.jpg)
 
 ### Bob needs you!
